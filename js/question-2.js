@@ -35,19 +35,18 @@ async function callRawg() {
     const results = await response.json();
     console.log(results);
 
-    const rawgResults = results.all;
     resultsContainer.innerHTML = "";
 
-    for (let count = 0; count < rawgResults.length; count++) {
-      console.log(rawgResults[i].name);
-      if (count === 8) {
+    for (let i = 0; i < results.length; i++) {
+      console.log(results[i].name);
+      if (i === 8) {
         break;
       }
 
-      const numberOfTags = rawgResults[i].tags;
+      const numberOfTags = results[i].tags;
 
-      resultsContainer.innerHTML += `<div class="result">Name: ${rawgResults[i].name}
-                                    Rating: ${rawgResults[i].rating}
+      resultsContainer.innerHTML += `<div class="result">Name: ${results[i].name}
+                                    Rating: ${results[i].rating}
                                     Tags: ${numberOfTags.length}
                                     </div>`;
     }
