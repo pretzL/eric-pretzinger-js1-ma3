@@ -16,6 +16,8 @@
   border-radius: 1rem;
 }
 
+/* Loader taken from the GitHub repo for Noroff module 3 lesson 3 */
+
 .loader {
   border: 16px solid #f3f3f3;
   border-top: 16px solid blue;
