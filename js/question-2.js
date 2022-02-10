@@ -32,12 +32,12 @@ const resultsContainer = document.querySelector(".results");
 async function callRawg() {
   try {
     const response = await fetch(url);
-    const results = await response.json();
-    console.log(results);
+    const resolvedResponse = await response.json();
+    console.log(resolvedResponse);
 
     resultsContainer.innerHTML = "";
 
-    rawgResults = results.results;
+    rawgResults = resolvedResponse.results;
 
     for (let i = 0; i < rawgResults.length; i++) {
       console.log(rawgResults[i].name);
