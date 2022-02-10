@@ -10,3 +10,51 @@ Loop through the results and display the following properties in HTML, but only 
 name
 rating
 number of tags (not the tag details, just the amount of tags) */
+
+const url = "https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=-rating&key=35f9fd70b7b54c25bfa1662ebdeaff60";
+
+const resultsContainer = document.querySelector(".results");
+
+/* function createHTML(results) {
+  const rawgResults = results.all;
+
+  resultsContainer.innerHTML = "";
+
+  for (let i = 0; i < rawgResults.length; i++) {
+    if (i === 8) {
+      break;
+    }
+
+    resultsContainer.innerHTML += `<div class="result">${rawgResults[i]}</div>`;
+  }
+} */
+
+async function callRawg() {
+  try {
+    const response = await fetch(url);
+    const results = await response.json();
+    console.log(results);
+
+    const rawgResults = results.all;
+    resultsContainer.innerHTML = "";
+
+    for (let count = 0; count < rawgResults.length; count++) {
+      console.log(rawgResults[i].name);
+      if (count === 8) {
+        break;
+      }
+
+      const numberOfTags = rawgResults[i].tags;
+
+      resultsContainer.innerHTML += `<div class="result">Name: ${rawgResults[i].name}
+                                    Rating: ${rawgResults[i].rating}
+                                    Tags: ${numberOfTags.length}
+                                    </div>`;
+    }
+  } catch (error) {
+    console.log(error);
+    resultsContainer.innerHTML = "An error occurred when calling the API";
+  }
+}
+
+callRawg();
