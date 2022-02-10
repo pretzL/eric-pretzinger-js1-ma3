@@ -15,20 +15,6 @@ const url = "https://api.rawg.io/api/games?dates=2019-01-01,2019-12-31&ordering=
 
 const resultsContainer = document.querySelector(".results");
 
-/* function createHTML(results) {
-  const rawgResults = results.all;
-
-  resultsContainer.innerHTML = "";
-
-  for (let i = 0; i < rawgResults.length; i++) {
-    if (i === 8) {
-      break;
-    }
-
-    resultsContainer.innerHTML += `<div class="result">${rawgResults[i]}</div>`;
-  }
-} */
-
 async function callRawg() {
   try {
     const response = await fetch(url);
@@ -36,6 +22,7 @@ async function callRawg() {
     console.log(resolvedResponse);
 
     resultsContainer.innerHTML = "";
+    resultsContainer.classList.remove("loader");
 
     rawgResults = resolvedResponse.results;
 
