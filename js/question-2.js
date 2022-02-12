@@ -27,7 +27,6 @@ async function callRawg() {
     rawgResults = resolvedResponse.results;
 
     for (let i = 0; i < rawgResults.length; i++) {
-      console.log(rawgResults[i].name);
       if (i === 8) {
         break;
       }
