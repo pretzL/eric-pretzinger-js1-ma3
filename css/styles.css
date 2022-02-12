@@ -2,15 +2,20 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: lightgrey;
+}
+
 .results {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  max-width: 1000px;
 }
 
 .result {
   margin: 1rem;
   padding: 1rem;
-  max-width: 200px;
+  max-width: 300px;
   background: white;
   border: 1px solid grey;
   border-radius: 1rem;
